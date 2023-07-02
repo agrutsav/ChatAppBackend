@@ -12,8 +12,6 @@ require("dotenv").config();
 
 app.use(express.json());
 
-app.use("/api/auth",userRoutes)
-app.use("/api/messages",messageRoute)
 
 mongoose.connect(process.env.MONGO_URL,{
 }).then(()=>{
@@ -21,6 +19,10 @@ mongoose.connect(process.env.MONGO_URL,{
 }).catch((err)=>{
     console.log(err.message);
 })
+
+app.use("/api/auth",userRoutes)
+app.use("/api/messages",messageRoute)
+
 
 const server=app.listen(process.env.PORT,()=>{
     console.log(`Server Started on ${process.env.PORT}`)
