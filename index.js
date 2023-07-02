@@ -16,8 +16,6 @@ app.use("/api/auth",userRoutes)
 app.use("/api/messages",messageRoute)
 
 mongoose.connect(process.env.MONGO_URL,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
 }).then(()=>{
     console.log("connection successful")
 }).catch((err)=>{
